@@ -10,8 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="算法代码：https://github.com/fishlao/algorithm
-###1.选择排序原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交换">
+        <meta name="description" content="概念：在计算机科学中，柯里化（Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的。
+在js中，柯里化函数属于高阶函数的一种">
     
 
     <!--Author-->
@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Algorithm"/>
+        <meta property="og:title" content="函数柯里化"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Algorithm - Fish</title>
+    <title>函数柯里化 - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -145,13 +145,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Algorithm</h1>
+                    <h1>函数柯里化</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-07-27
+                            2017-08-02
                         
                     </span>
                 </div>
@@ -172,7 +172,7 @@
                         
 
 
-<a href="/myBlog/tags/Java/">#Java</a>
+<a href="/myBlog/tags/js/">#js</a>
 
 
                     
@@ -187,11 +187,17 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>算法代码：<a href="https://github.com/fishlao/algorithm" target="_blank" rel="external">https://github.com/fishlao/algorithm</a></p>
-<p>###1.选择排序<br>原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交换位置。因为每一个交换都能确定一个元素的位置，所以交换的次数为N，而比较的次数为，第一次比较为N-1（排除自己和剩下的元素比较），第二次比较N-2….最后一次比较为1，所以比较次数为[（N-1+1）*（N-1)]/2,即≈N^2/2.算法的效率取决于比较的次数</p>
-<p><strong>对于长度为N的数组，选择排序需要大约N^2/2次比较和N次交换</strong></p>
-<p>###2、插入排序<br>原理：当前索引的左边的元素都是有序的，只是最终的位置是不确定的，所以要将当前索引的元素插入前面的有序元素组中，当前索引为数组的最后索引时，则排序已经完成。插入排序需要的交换操作和数组中倒置的数量相同。</p>
-<p><strong> 平均情况下插入排序需要~N^2/4次比较以及~N/4次交换。最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换 </strong></p>
+                <p>概念：在计算机科学中，柯里化（Currying），又译为卡瑞化或加里化，是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。这个技术由克里斯托弗·斯特雷奇以逻辑学家哈斯凯尔·加里命名的。</p>
+<p>在js中，柯里化函数属于高阶函数的一种。一般接收部分参数，然后返回一个绑定了该参数作用域的新函数，然后继续接收剩余参数…返回新函数，当传入的参数为空时，才返回真正的函数结果。应用了部分求值的策略；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">普通函数：</div><div class="line">function sum(a,b) &#123;</div><div class="line">	return a+b;</div><div class="line">&#125;</div><div class="line">result = sum(1,2); //3</div><div class="line"></div><div class="line">函数柯里化</div><div class="line"></div><div class="line">function curry(fn)&#123;</div><div class="line">	//	保存除了第一个参数是函数外的其他参数,因为参数是1,所以用call比apply好</div><div class="line">	var _args = [].slice.call(arguments,1);</div><div class="line">	var _curry = function()&#123;</div><div class="line">		// 如果没有再传入参数则返回结果</div><div class="line">		if (arguments.length === 0) &#123;</div><div class="line">			return fn.apply(this,_args);</div><div class="line">		&#125;</div><div class="line">		[].push.apply(_args,[].slice.apply(arguments));</div><div class="line">		return _curry;</div><div class="line">	&#125;</div><div class="line">	return _curry;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sum()&#123;</div><div class="line">	return [].reduce.call(arguments,function(a,b)&#123;return a+b&#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">result = curry(sum,1,2)(3)();//6</div></pre></td></tr></table></figure>
+<p>###作用</p>
+<ol>
+<li>延迟计算;由上面可以看出，每次只采取部分参数，当最后传入空参数时，才执行计算；</li>
+<li>参数复用;按我的理解应该是比如计算1+2+3的时候直接是<code>curry(sum)(1)(2)</code>加上(3)传递参数而不用又一次调用<code>curry(sum,1,2,3)</code>；也就是复用了前面的参数；<br>3.动态创建函数。这可以是在部分计算出结果后，在此基础上动态生成新的函数处理后面的业务，这样省略了重复计算。这样，在计算出部分结果的函数可以直接应用于其他地方了，其实我觉得第二点和第三点的意思差不多？？</li>
+</ol>
+<p>###应用</p>
+<p>js中的bind函数也是一个柯里化函数；通过传入一个上下文参数，改变调用该方法的函数的上下文；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Function.prototype.testBind = function(context)&#123;</div><div class="line">	var fn = this;</div><div class="line">	// 返回一个新函数,但是并未执行</div><div class="line">	return function()&#123;</div><div class="line">		return fn.apply(context);</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line">var a = 1;</div><div class="line">var obj = &#123; a: 2 &#125;;</div><div class="line">test=function()&#123; console.log(this.a);&#125;</div><div class="line">test(); // 1</div><div class="line">// 返回一个新函数</div><div class="line">c = test.testBind(obj);</div><div class="line">// 延迟执行</div><div class="line">c(); //2</div></pre></td></tr></table></figure>
 
 
                 
