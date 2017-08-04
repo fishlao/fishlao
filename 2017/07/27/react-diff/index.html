@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="react Diff"/>
+        <meta property="og:title" content="React Diff"/>
     
 
     <!--Open Graph Description-->
@@ -42,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>react Diff - Fish</title>
+    <title>React Diff - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -144,7 +144,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>react Diff</h1>
+                    <h1>React Diff</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -188,7 +188,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>###Compare the emlement type of root<br>1、if type is different,then the old one will be destoryed and new component will be rebuild,eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;Counter /&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;span&gt;</div><div class="line">  &lt;Counter /&gt;</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure></p>
 <p>when diffing above,this will destory the old Counter and remount a new one;<br>related method:<br>    destory: <code>componentWillUnmount()</code><br>    rebuild: <code>componentWillMount()</code> &amp; <code>componentDidMount()</code></p>
-<p>2、if type is same, React looks at the attributes of both,finds the diff between the previous and the new,and then only update the changed attributes.React calls <code>componentWillReceiveProps()</code> and <code>componentWillUpdate()</code> on the underlying instance,and next calls <code>render()</code>.The diff algorithm recurses on the diff algorithm recurses on the previous result and new result.</p>
+<p>2、if type is same, React looks at the attributes of both,finds the diff between the previous and the new,and then only update the changed attributes.React calls <code>componentWillReceiveProps()</code> and <code>componentWillUpdate()</code> on the underlying instance,and next calls <code>render()</code>.The diff algorithm recurses on the previous result and new result.</p>
 
 
                 
