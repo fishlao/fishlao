@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="事件流可以想象在嵌套着不同半径的同心圆中，当你点击圆心的时候，你实际上点击了所有的圆。所以如果你点击了一个按钮，实际上，你还点击了包含了这个按钮的父元素，这样一层层地触发。一系列的事件触发的顺序就是事件流。然而，很久很久以前Microsoft和Netscape对于事件触发的顺序有些截然不同的定义。
+">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="fishlao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="事件机制"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Fish"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>事件机制 - Fish</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/myBlog/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/myBlog/">Fish</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/myBlog/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/tags">
+                            
+                                tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/fishlao">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>事件机制</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-08-06
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/myBlog/tags/Js/">#Js</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><p>可以想象在嵌套着不同半径的同心圆中，当你点击圆心的时候，你实际上点击了所有的圆。所以如果你点击了一个按钮，实际上，你还点击了包含了这个按钮的父元素，这样一层层地触发。一系列的事件触发的顺序就是事件流。<br>然而，很久很久以前Microsoft和Netscape对于事件触发的顺序有些截然不同的定义。</p>
+<h3 id="Event-Bubbling-事件冒泡-IE事件流"><a href="#Event-Bubbling-事件冒泡-IE事件流" class="headerlink" title="Event Bubbling(事件冒泡) IE事件流"></a>Event Bubbling(事件冒泡) IE事件流</h3><p>事件冒泡是指从最具体的元素开始，直到触发至最父层。</p>
+<h3 id="Event-capturing-事件捕获-Netscape支持的事件机制"><a href="#Event-capturing-事件捕获-Netscape支持的事件机制" class="headerlink" title="Event capturing(事件捕获) Netscape支持的事件机制"></a>Event capturing(事件捕获) Netscape支持的事件机制</h3><p>事件捕获与事件冒泡相反，事件最开始由真正触发事件的节点的祖先结点开始触发，再一层一层往下到真正的结点。</p>
+<p><img src="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg" alt="事件流图" title="事件流图"></p>
+<h3 id="W3C标准的DOM事件流"><a href="#W3C标准的DOM事件流" class="headerlink" title="W3C标准的DOM事件流"></a>W3C标准的DOM事件流</h3><p>分为三个阶段<br>1.事件捕获阶段： 事件从document一直往下传播到目标元素，依次检查经过的节点是否绑定了该阶段的事件监听函数，如果有，则触发。</p>
+<p>2.事件目标阶段：<br>真正触发事件的元素，并触发该事件函数产生。</p>
+<p>3.事件冒泡阶段：<br>事件从目标元素，一直往上传播到目标元素，依次检查经过的节点是否绑定了该阶段的事件监听函数，如果有，则触发。</p>
+<p>与事件绑定的只要函数是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">target.addEventListener(type, listener[, options]);</div><div class="line"></div><div class="line">target.addEventListener(type, listener[, useCapture]); </div><div class="line"></div><div class="line">target.addEventListener(type, listener[, useCapture, wantsUntrusted ]); // Gecko/Mozilla only</div></pre></td></tr></table></figure></p>
+<p>type是事件类型，listener是事件监听函数，而useCapture就是指定该事件是在Capture阶段还是在Bubble阶段触发，默认是false,表明默认的是采取冒泡机制，应该是想兼容IE浏览器。而true代表捕获机制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">document.getElementById(&quot;child&quot;).onclick = function()&#123;&#125;</div><div class="line">`</div></pre></td></tr></table></figure>
+<p>这样方式绑定的事件机制也是冒泡机制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;parent&quot; style=&quot;width:200px;height:200px;background-color:red&quot;&gt;</div><div class="line">	&lt;div id=&quot;child&quot; class=&quot;child&quot; style=&quot;width:50px;height:50px;background-color:pink&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	document.addEventListener(&quot;click&quot;,showCurrentTarget);</div><div class="line">	document.getElementById(&quot;parent&quot;).addEventListener(&quot;click&quot;,showCurrentTarget,true);</div><div class="line">	document.getElementById(&quot;child&quot;).addEventListener(&quot;click&quot;,showCurrentTarget);</div><div class="line">	function showCurrentTarget(e) &#123;</div><div class="line">		console.log(e.currentTarget,e.currentTarget.id);</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><img src="/img/eventProxy-img" alt="图片"><br>例如上面的例子,点击粉色区域,即Id为child的时候console结果如下：<br>1.parent的dom节点 “parent”<br>2.child的dom节点 “child”<br>3.#document的dom结点 “undefined”</p>
+<p>首先点击的真正元素的是child,浏览器从最上层遍历绑定了捕获阶段事件监听函数的祖先元素，遍历的节点有document和parent，但是只有parent绑定了捕获阶段事件监听函数，所以最先触发的是parent</p>
+<p>接着是真正触发的元素child</p>
+<p>再接着回溯往上找，遍历的节点还是有parent和doc，但是只有document绑定了冒泡阶段事件监听函数，所以打印了document的dom节点。</p>
+<p>基于冒泡机制，所以一般对于子元素数组，一般都采用事件代理的方法去绑定事件，这样可以减少内存空间，而且当子元素动态增减的时候，也不用再次给新增的子元素绑定事件了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=&quot;parent-ul&quot;&gt;</div><div class="line">	&lt;li id=&quot;1&quot;&gt;1&lt;/li&gt;</div><div class="line">	&lt;li id=&quot;2&quot;&gt;2&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	window.onload = function()&#123;</div><div class="line">	var ulNode = document.getElementById(&quot;parent-ul&quot;);</div><div class="line">	//通过事件代理，冒泡机制实现</div><div class="line">	ulNode.addEventListener(&quot;click&quot;,function(e)&#123;</div><div class="line">		if(e.target &amp;&amp; e.target.nodeName.toUpperCase() == &quot;LI&quot;) &#123;</div><div class="line">			console.log(&quot;List item &quot;,e.target.id,&quot; was clicked!&quot;)</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;)</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>这样，虽然真正点击的元素的li，但是通过冒泡机制，当事件传递到父元素时也会触发。</p>
+<p><strong><em>在IE浏览器中使用<code>attachEvent(type,handler)</code>绑定事件。</em></strong></p>
+<p>如果是取消事件传播，在IE中可以使用<code>window.event.cancelBubble = true</code><br>而W3C标准的浏览器可以用<code>e.stopPropagation()</code><br>兼容性代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function doSomething(e)</div><div class="line">&#123;</div><div class="line">	if (!e) var e = window.event;</div><div class="line">	e.cancelBubble = true;</div><div class="line">	if (e.stopPropagation) e.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>currentTarget</code>在W3C中可以知道事件传播过程中正在触发的dom元素是谁，而<code>target</code>则是知道真正触发事件的是哪个节点。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/fishlao" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 fishlao<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
