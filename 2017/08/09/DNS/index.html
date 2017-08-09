@@ -10,8 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="算法代码：https://github.com/fishlao/algorithm
-基础排序1.选择排序原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交">
+        <meta name="description" content="DNS(domain name system) 主要作用就是将主机域名转换成IP地址
+DNS是应用层协议，简单的流程如下，1.用户主机运行着DNS的客户端，浏览器将接收到的url抽取出域名字段，例如http://www.baidu.com，并将这个主机名传送给DNS应用的客户端。2.DNS向DNS服">
     
 
     <!--Author-->
@@ -21,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Algorithm"/>
+        <meta property="og:title" content="DNS原理"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Algorithm - Fish</title>
+    <title>DNS原理 - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -145,13 +145,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Algorithm</h1>
+                    <h1>DNS原理</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-07-27
+                            2017-08-09
                         
                     </span>
                 </div>
@@ -172,7 +172,7 @@
                         
 
 
-<a href="/myBlog/tags/Java/">#Java</a>
+<a href="/myBlog/tags/Network/">#Network</a>
 
 
                     
@@ -187,16 +187,20 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>算法代码：<a href="https://github.com/fishlao/algorithm" target="_blank" rel="external">https://github.com/fishlao/algorithm</a></p>
-<h2 id="基础排序"><a href="#基础排序" class="headerlink" title="基础排序"></a>基础排序</h2><p>1.选择排序<br>原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交换位置。因为每一个交换都能确定一个元素的位置，所以交换的次数为N，而比较的次数为，第一次比较为N-1（排除自己和剩下的元素比较），第二次比较N-2….最后一次比较为1，所以比较次数为[（N-1+1）*（N-1)]/2,即≈N^2/2.算法的效率取决于比较的次数</p>
-<p><strong>对于长度为N的数组，选择排序需要大约N^2/2次比较和N次交换</strong></p>
-<p>2.插入排序<br>原理：当前索引的左边的元素都是有序的，只是最终的位置是不确定的，所以要将当前索引的元素插入前面的有序元素组中，当前索引为数组的最后索引时，则排序已经完成。插入排序需要的交换操作和数组中倒置的数量相同。</p>
-<p><strong> 平均情况下插入排序需要~N^2/4次比较以及~N/4次交换。最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换 </strong></p>
-<p>3.希尔排序<br>原理：基于插入排序的快速的排序算法。在插入排序中，对于大规模的乱序数组插入排序很慢，因为它只能通过交换来挪动位置，假设最小的元素在最右端，那么就要通过N-次交换。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。这样可以让在排在靠前的较大元素可以减少交换和比较的次数。关键是选择正确的h序列公式，一般都是取h=长度/2；</p>
-<p><strong>在随机无序数组排序中，希尔排序比插入排序的时间快</strong></p>
-<p><img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=64f173189145d688b70fbaf6c5ab167b/b3fb43166d224f4a87a8c9380af790529822d1ec.jpg" alt="希尔排序图" title="希尔排序图"></p>
-<p>4.冒泡排序<br>原理：顾名思义，浮到最上层的元素最大。元素两两比较，如果后者比前者小，则交换元素，最后的数将会被交换到最后的位置，重复过程，每一轮排序中都可以确定一个最大的元素。总共需要N-1轮排序，每一轮排序需要N-i轮比较，因为第一轮排序后确定了1个元素，第二轮排序后确定了2个元素，所以即需要两层循环。</p>
-<p>数组排序前    7    23    12    4    33    21    2    17    13    9<br>第一轮排序    7    12    4    23    21    2    17    13    9    33<br>第二轮排序    7    4    12    21    2    17    13    9    23<br>第三轮排序    4    7    12    2    17    13    9    21<br>第四轮排序    4    7    2    12    13    9    17<br>第五轮排序    4    2    7    12    9    13<br>第六轮排序    2    4    7    9    12<br>第七轮排序    2    4    7    9<br>第八轮排序    2    4    7<br>第九轮排序    2    4     </p>
+                <p>DNS(domain name system) 主要作用就是将主机域名转换成IP地址</p>
+<h3 id="DNS是应用层协议，简单的流程如下，"><a href="#DNS是应用层协议，简单的流程如下，" class="headerlink" title="DNS是应用层协议，简单的流程如下，"></a>DNS是应用层协议，简单的流程如下，</h3><p>1.用户主机运行着DNS的客户端，浏览器将接收到的url抽取出域名字段，例如<code>http://www.baidu.com</code>，并将这个主机名传送给DNS应用的客户端。<br>2.DNS向DNS服务器端发送一份查询报文，报文字段包含着要访问的主机名字段，采用UDP协议<br>3.DNS客户机最终收到一份回答报文，其中包含着有该主机名对应的IP地址。<br>4.一旦该浏览器收到来自DNS的IP地址，就可以向该IP地址定位的http服务器发起TCP连接</p>
+<p><img src="https://pic4.zhimg.com/79b9fd2666e989ab24024966632ae63f_b.png" alt="DNS域名称组织图" title="DNS域名称组织图"></p>
+<p>####根域<br>就是所谓的”.”,例如网址<code>www.baidu.com</code>在配置中应该是<code>www.baidu.com.</code>，一般在浏览器里输入时会省略后面的点。根域服务器的IP地址有13个，但是并不是说只有13台服务器，而是这些IP地址借助了任播的技术，在全球设立了IP的镜像站点。</p>
+<p>####域的划分<br>根域之后就是一级域或者叫顶级域，每个域都有域名服务器，也叫权威域名服务器。baidu.com就是一个顶级域名，而www.baidu.com却不是顶级域名，它是在baidu.com这个域下的一个叫做www的主机。</p>
+<h4 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h4><p>能提供域名解析的服务器</p>
+<p><img src="https://pic2.zhimg.com/607e9d15fd6d5f9d02f6f4b0adb261b9_b.png" alt="dns服务器的部分层次结构" title="dns服务器的部分层次结构"></p>
+<p>DNS服务器一般分为3种，根DNS服务器，顶级DNS服务器，权威DNS服务器。</p>
+<p><strong>DNS服务采用分布式集群的工作方式，由全球的大量DNS服务器以及定义了DNS服务器与查询主机通信方式的应用层协议组成。</strong></p>
+<p>具体流程如下<br>1.在浏览器中输入<code>www.qq.com</code>域名，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。（window位于C:\Windows\System32\drivers\etc）</p>
+<p>2.如果hosts里没有这个域名的映射，则查找本地dns解析器缓存（window下位于DNS CLient服务，为了提高网站的访问速度，系统会在成功访问某网站后将该网站的域名、IP地址信息缓存到本地）是否有这个网站映射关系，如果有，直接返回，完成域名解析。</p>
+<p>3.如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/ip参数中设置的首选DNS服务器或者运营商（ISP）提供的DNS服务器地址，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。到此为止，这一过程为递归查询。</p>
+<p>4.如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发送至13台根DNS，根DNS服务器收到请求后会判断.com是谁来管理，并返回一个负责该顶级域名服务器的一个IP，本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(<a href="http://qq.com)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找http://qq.com域服务器，重复上面的动作，进行查询，直至找到www.qq.com主机。这一过程属于迭代查询。" target="_blank" rel="external">http://qq.com)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找http://qq.com域服务器，重复上面的动作，进行查询，直至找到www.qq.com主机。这一过程属于迭代查询。</a></p>
+<p>参考：<br><a href="https://www.zhihu.com/question/23042131/answer/66571369" target="_blank" rel="external">https://www.zhihu.com/question/23042131/answer/66571369</a><br><a href="http://blog.chinaunix.net/uid-28216282-id-3757849.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-28216282-id-3757849.html</a></p>
 
 
                 

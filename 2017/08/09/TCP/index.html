@@ -10,8 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="算法代码：https://github.com/fishlao/algorithm
-基础排序1.选择排序原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交">
+        <meta name="description" content="TCP报文格式1.序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，数据包本身的序列号。2.确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，是期望对方继续发送的那个数据包的序列号，Ack=对方的Seq号+1。3.标志位：共6个，即URG、ACK、PSH">
     
 
     <!--Author-->
@@ -21,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Algorithm"/>
+        <meta property="og:title" content="TCP握手和挥手原理"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Algorithm - Fish</title>
+    <title>TCP握手和挥手原理 - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -145,13 +144,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Algorithm</h1>
+                    <h1>TCP握手和挥手原理</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-07-27
+                            2017-08-09
                         
                     </span>
                 </div>
@@ -172,7 +171,7 @@
                         
 
 
-<a href="/myBlog/tags/Java/">#Java</a>
+<a href="/myBlog/tags/Network/">#Network</a>
 
 
                     
@@ -187,16 +186,19 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>算法代码：<a href="https://github.com/fishlao/algorithm" target="_blank" rel="external">https://github.com/fishlao/algorithm</a></p>
-<h2 id="基础排序"><a href="#基础排序" class="headerlink" title="基础排序"></a>基础排序</h2><p>1.选择排序<br>原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交换位置。因为每一个交换都能确定一个元素的位置，所以交换的次数为N，而比较的次数为，第一次比较为N-1（排除自己和剩下的元素比较），第二次比较N-2….最后一次比较为1，所以比较次数为[（N-1+1）*（N-1)]/2,即≈N^2/2.算法的效率取决于比较的次数</p>
-<p><strong>对于长度为N的数组，选择排序需要大约N^2/2次比较和N次交换</strong></p>
-<p>2.插入排序<br>原理：当前索引的左边的元素都是有序的，只是最终的位置是不确定的，所以要将当前索引的元素插入前面的有序元素组中，当前索引为数组的最后索引时，则排序已经完成。插入排序需要的交换操作和数组中倒置的数量相同。</p>
-<p><strong> 平均情况下插入排序需要~N^2/4次比较以及~N/4次交换。最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换 </strong></p>
-<p>3.希尔排序<br>原理：基于插入排序的快速的排序算法。在插入排序中，对于大规模的乱序数组插入排序很慢，因为它只能通过交换来挪动位置，假设最小的元素在最右端，那么就要通过N-次交换。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。这样可以让在排在靠前的较大元素可以减少交换和比较的次数。关键是选择正确的h序列公式，一般都是取h=长度/2；</p>
-<p><strong>在随机无序数组排序中，希尔排序比插入排序的时间快</strong></p>
-<p><img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=64f173189145d688b70fbaf6c5ab167b/b3fb43166d224f4a87a8c9380af790529822d1ec.jpg" alt="希尔排序图" title="希尔排序图"></p>
-<p>4.冒泡排序<br>原理：顾名思义，浮到最上层的元素最大。元素两两比较，如果后者比前者小，则交换元素，最后的数将会被交换到最后的位置，重复过程，每一轮排序中都可以确定一个最大的元素。总共需要N-1轮排序，每一轮排序需要N-i轮比较，因为第一轮排序后确定了1个元素，第二轮排序后确定了2个元素，所以即需要两层循环。</p>
-<p>数组排序前    7    23    12    4    33    21    2    17    13    9<br>第一轮排序    7    12    4    23    21    2    17    13    9    33<br>第二轮排序    7    4    12    21    2    17    13    9    23<br>第三轮排序    4    7    12    2    17    13    9    21<br>第四轮排序    4    7    2    12    13    9    17<br>第五轮排序    4    2    7    12    9    13<br>第六轮排序    2    4    7    9    12<br>第七轮排序    2    4    7    9<br>第八轮排序    2    4    7<br>第九轮排序    2    4     </p>
+                <h4 id="TCP报文格式"><a href="#TCP报文格式" class="headerlink" title="TCP报文格式"></a>TCP报文格式</h4><p><img src="http://www.2cto.com/uploadfile/2013/1022/20131022025345890.png" alt="TCP报文格式" title="TCP报文格式"><br>1.序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，数据包本身的序列号。<br>2.确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，是期望对方继续发送的那个数据包的序列号，Ack=对方的Seq号+1。<br>3.标志位：共6个，即URG、ACK、PSH、RST、SYN、FIN等，具体含义如下：<br>4.URG：紧急指针（urgent pointer）有效。<br>5.ACK：确认序号有效。<br>6.PSH：接收方应该尽快将这个报文交给应用层。<br>7.RST：重置连接。<br>8.SYN：发起一个新连接。<br>9.FIN：释放一个连接。</p>
+<h3 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h3><p> 指建立一个TCP连接时，需要客户端和服务器总共发送3个包以确认连接的建立。流程图如下：<br><img src="http://www.2cto.com/uploadfile/2013/1022/20131022025346218.png" alt="TCP连接" title="三次握手"></p>
+<p>第一次握手：Client将标志位SYN置为1，随机产生初始序号Seq=J,并将此数据包发送给Server，Client进入等待回复状态，等待Server确认。</p>
+<p>第二次握手：Server收到包之后，知道他的SYN位=1之后得知这个是请求建立请求的包，Server将标志位SYN和ACK都置为，ack=J+1（因为期望接收Client的序号是J的下一个序号),Seq=K<br>(Server发送的这个包的随机序列号),并将这个数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态</p>
+<p>第三次握手：Client收到确认后，检查ack是否等于J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将数据包发送给Server，告诉它，我已经收到你的确认消息拉；Server检查ack是否为K+1,ACK是否为1，如果正确则连接建立成功，两者进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</p>
+<p>就好比说：<br>我想拿到一间大公司的offer，然后我就会先提出申请说，我想进你们公司！然后大公司就会收到这个申请然后回复我说你的申请我们已经收到了，然后我就会礼貌地回复了一句谢谢，然后就可以去公司开始面试了。</p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p>TCP四次挥手是在双方要终止连接的时候进行的四次数据发送。由于TCP连接时是全双工的，因此，每个方向都必须要单独进行关闭。首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。但是也有双方同时发起关闭的情况。</p>
+<p>进行关闭的一方将执行主动关闭，而另一方执行被动关闭</p>
+<p>第一次挥手： Client发送一个FIN标记和fin序号K，用来关闭Client到Server的数据传送。</p>
+<p>第二次挥手： 服务器B收到这个FIN，它发回一个ACK，标记为1，确认序号ack为fin序号K+1；（关闭服务器读通道）<br>客户端收到ack(K+1)后关闭客户机写通道</p>
+<p>第三次挥手：<br>服务器发送一个FIN标记和fin序号J，用来关闭Server到Client的数据传送。</p>
+<p>第四次挥手：客户机收到Fin标记后，返回确认字段ack(J+1)以及确认标志ACK，关闭客户机读通道<br>服务器收到ACK(J+1)后，关闭服务器写通道</p>
+<p><img src="http://images.cnitblog.com/blog/88420/201401/281600391879667.png" alt="TCP挥手" title="四次握手"><br>当客户端发起关闭连接时，即第二次挥手后，客户端还是可以接收数据的，此时服务器还未有数据发送完毕，还可以继续发送剩余数据，再次发起FIN关闭连接。</p>
 
 
                 

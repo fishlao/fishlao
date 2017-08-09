@@ -10,9 +10,6 @@
 
     <!--Description-->
     
-        <meta name="description" content="算法代码：https://github.com/fishlao/algorithm
-基础排序1.选择排序原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交">
-    
 
     <!--Author-->
     
@@ -21,7 +18,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Algorithm"/>
+        <meta property="og:title" content="Fish"/>
     
 
     <!--Open Graph Description-->
@@ -32,7 +29,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
     
 
     <!--Page Cover-->
@@ -43,7 +40,7 @@
 
     <!-- Title -->
     
-    <title>Algorithm - Fish</title>
+    <title>Network - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -137,82 +134,62 @@
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
+    
 
+<!-- Page Header -->
+<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>Algorithm</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
-                            2017-07-27
-                        
-                    </span>
+                <div class="site-heading">
+                    <h1>#Network</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/myBlog/tags/Java/">#Java</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             
-
-            <!-- Gallery -->
+                <div class="post-preview">
+    <a href="/myBlog/2017/08/09/TCP/">
+        <h1 class="post-title archive">
+            TCP握手和挥手原理
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+        2017-08-09
+    </p>
+</div>
             
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>算法代码：<a href="https://github.com/fishlao/algorithm" target="_blank" rel="external">https://github.com/fishlao/algorithm</a></p>
-<h2 id="基础排序"><a href="#基础排序" class="headerlink" title="基础排序"></a>基础排序</h2><p>1.选择排序<br>原理： 首先，找到数组中的最小元素，然后将最小元素和第一个元素交换，然后在剩下的元素中找最小的元素，再将该元素和第二个元素交换位置，如此重复，直至数组排序完成，即每次从剩下的元素中选出最小的然后交换位置。因为每一个交换都能确定一个元素的位置，所以交换的次数为N，而比较的次数为，第一次比较为N-1（排除自己和剩下的元素比较），第二次比较N-2….最后一次比较为1，所以比较次数为[（N-1+1）*（N-1)]/2,即≈N^2/2.算法的效率取决于比较的次数</p>
-<p><strong>对于长度为N的数组，选择排序需要大约N^2/2次比较和N次交换</strong></p>
-<p>2.插入排序<br>原理：当前索引的左边的元素都是有序的，只是最终的位置是不确定的，所以要将当前索引的元素插入前面的有序元素组中，当前索引为数组的最后索引时，则排序已经完成。插入排序需要的交换操作和数组中倒置的数量相同。</p>
-<p><strong> 平均情况下插入排序需要~N^2/4次比较以及~N/4次交换。最坏情况下需要~N^2/2次比较和~N^2/2次交换，最好情况下需要N-1次比较和0次交换 </strong></p>
-<p>3.希尔排序<br>原理：基于插入排序的快速的排序算法。在插入排序中，对于大规模的乱序数组插入排序很慢，因为它只能通过交换来挪动位置，假设最小的元素在最右端，那么就要通过N-次交换。希尔排序为了加快速度简单地改进了插入排序，交换不相邻的元素以对数组的局部进行排序，并最终用插入排序将局部有序的数组排序。这样可以让在排在靠前的较大元素可以减少交换和比较的次数。关键是选择正确的h序列公式，一般都是取h=长度/2；</p>
-<p><strong>在随机无序数组排序中，希尔排序比插入排序的时间快</strong></p>
-<p><img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=64f173189145d688b70fbaf6c5ab167b/b3fb43166d224f4a87a8c9380af790529822d1ec.jpg" alt="希尔排序图" title="希尔排序图"></p>
-<p>4.冒泡排序<br>原理：顾名思义，浮到最上层的元素最大。元素两两比较，如果后者比前者小，则交换元素，最后的数将会被交换到最后的位置，重复过程，每一轮排序中都可以确定一个最大的元素。总共需要N-1轮排序，每一轮排序需要N-i轮比较，因为第一轮排序后确定了1个元素，第二轮排序后确定了2个元素，所以即需要两层循环。</p>
-<p>数组排序前    7    23    12    4    33    21    2    17    13    9<br>第一轮排序    7    12    4    23    21    2    17    13    9    33<br>第二轮排序    7    4    12    21    2    17    13    9    23<br>第三轮排序    4    7    12    2    17    13    9    21<br>第四轮排序    4    7    2    12    13    9    17<br>第五轮排序    4    2    7    12    9    13<br>第六轮排序    2    4    7    9    12<br>第七轮排序    2    4    7    9<br>第八轮排序    2    4    7<br>第九轮排序    2    4     </p>
-
-
-                
-            </div>
-
-            <!-- Comments -->
+                <div class="post-preview">
+    <a href="/myBlog/2017/08/09/DNS/">
+        <h1 class="post-title archive">
+            DNS原理
+        </h1>
+    </a>
+    <p class="post-meta archive">
+        <!-- Date and Author -->
+        
+        2017-08-09
+    </p>
+</div>
             
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
+            <div class="archive-before-pagination"></div>
+            <ul class="pager">
+    
+    
+</ul>
         </div>
     </div>
-</article>
+</div>
+
 
     <!-- Footer -->
     <hr />
