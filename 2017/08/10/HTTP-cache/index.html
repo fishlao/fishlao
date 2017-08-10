@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="缓存机制规则我们可以认为浏览器和服务器之间还存在着一个本地的缓存数据库在客户端第一次访问服务器的时候，此时缓存数据库中没有数据，所以要向服务器请求数据，并将数据缓存起来。
+http缓存规则有很多种，其中强制缓存的时序图如下：
+其流程就是浏览器向缓存数据库询问数据有没有失效，如果失效了就向服务器请求最">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="fishlao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="HTTP Cache"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Fish"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>HTTP Cache - Fish</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/myBlog/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/myBlog/">Fish</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/myBlog/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/tags">
+                            
+                                tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/fishlao">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>HTTP Cache</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-08-10
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/myBlog/tags/Network/">#Network</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h4 id="缓存机制规则"><a href="#缓存机制规则" class="headerlink" title="缓存机制规则"></a>缓存机制规则</h4><p>我们可以认为浏览器和服务器之间还存在着一个本地的缓存数据库<br>在客户端第一次访问服务器的时候，此时缓存数据库中没有数据，所以要向服务器请求数据，并将数据缓存起来。</p>
+<p>http缓存规则有很多种，<br>其中强制缓存的时序图如下：<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210135521072-1812985836.png" alt="强制缓存" title="强制缓存"></p>
+<p>其流程就是浏览器向缓存数据库询问数据有没有失效，如果失效了就向服务器请求最新数据，再将数据存回缓存数据库。</p>
+<p>对比缓存时序图</p>
+<p><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210141716838-764535017.png" alt="对比缓存" title="对比缓存"></p>
+<p>其流程就是浏览器向缓存数据库拿到缓存数据的标识，然后拿这个标识向服务器询问是否已经过期，如果没有过期，就向缓存拿，如果过期了，则返回最新的数据。</p>
+<p>强制缓存和对比缓存同时存在的情况下，强制缓存的优先级较高。</p>
+<h3 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h3><p>主要有两个字段标识Expires/Cache-Control，这两个字段是浏览器在没有缓存数据的情况下，向服务器发起请求，然后服务器在响应体的头部返回。</p>
+<p>Expires<br>这是http1.0的产物，即下次请求时间小于服务器返回的时间，则直接使用缓存，但是服务器生成的时间和浏览器的时间可能会有差异，导致缓存可能会有误差。</p>
+<p>Cache-Control<br>这是http1.1的产物。常见的取值有private、public、no-cache、max-age，no-store，默认为private。<br>private:             客户端可以缓存<br>public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br>max-age=xxx:   缓存的内容将在 xxx 秒后失效<br>no-cache:          需要使用对比缓存来验证缓存数据（后面介绍）<br>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发</p>
+<h3 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h3><p>就是浏览器会带着缓存标识去问服务器，这个缓存标志的缓存有没有过期，如果没有过期则返回304标识符，然后浏览器就可以使用缓存了，否则就返回最新的数据</p>
+<p><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210141911682-1756976419.png" alt="第一次请求" title="第一次请求"><br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210141921697-379821074.png" alt="再次请求" title="再次请求"><br>第二次请求的时间比第一次少，因为第二次请求只返回header部分，不返回响应体。</p>
+<p>而这种缓存标识主要有两种：<br>1.Last Modified/If-Modified-Since</p>
+<p>Last Modified：浏览器向服务器请求数据的时候，服务器会返回这个字段，告知该资源被修改的最后时间<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210142249541-789089587.png" alt="Last Modified" title="Last Modified"></p>
+<p>If-Modified-Since: 当浏览器再次向服务器请求该资源的时候，会带上这个字段，而服务器发现请求中带有这个字段后，会去检查该资源在服务器的最后修改时间是不是大于这个字段，如果大于，则代表该资源被修改过，返回200状态符，并返回响应体，如果小于，则返回304。<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210142307166-135607673.png" alt="If-Modified-Since" title="If-Modified-Since"></p>
+<p>2.Etag/If-None-Match(优先级高于1)<br>Etag:服务器相应请求的时候，告知浏览器该数据的唯一标识符。<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210142054182-1766818273.png" alt="Etag" title="Etag"></p>
+<p>If-None-Match:再次请求服务器时，通过此字段通知服务器客户段缓存数据的唯一标识。<br>服务器收到请求后发现有头If-None-Match 则与被请求资源的唯一标识进行比对，<br>不同，说明资源又被改动过，则响应整片资源内容，返回状态码200；<br>相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210142115479-1921175758.png" alt="If-None-Match" title="If-None-Match"></p>
+<p>总结：<br><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210142134291-1976923079.png" alt="第一次请求浏览器" title="第一次请求浏览器"></p>
+<p><img src="http://images2015.cnblogs.com/blog/632130/201702/632130-20170210141453338-1263276228.png" alt="再次请求浏览器" title="再次请求浏览器"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/fishlao" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 fishlao<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
