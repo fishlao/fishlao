@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="函数实现继承构造函数也是函数，只是当他用New操作符去创建对象实例的时候，才拥有了构造函数的功能。函数都有一个prototype对象，默认会有一个constructor属性，指向prototype属性所在的函数对象；而这个对象保存着所有实例共有的方法和属性1.原型链的继承原理：A,B实现继承==&amp;g">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="fishlao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JS Inheritance"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Fish"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>JS Inheritance - Fish</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/myBlog/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/myBlog/">Fish</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/myBlog/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/tags">
+                            
+                                tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/fishlao">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>JS Inheritance</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-08-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/myBlog/tags/Js/">#Js</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>函数实现继承<br>构造函数也是函数，只是当他用New操作符去创建对象实例的时候，才拥有了构造函数的功能。函数都有一个prototype对象，默认会有一个constructor属性，指向prototype属性所在的函数对象；而这个对象保存着所有实例共有的方法和属性<br>1.原型链的继承<br>原理：A,B实现继承==&gt;通过构造B的实例，然后将B的实例赋值给A的原型对象，这样A的原型对象就有了指向B的原型对象的指针，还可以在A的原型方法中添加额外的属性和方法；A的实例也就拥有了A和B的原型方法了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function B () &#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">B.prototype.sayHello = function ()&#123;</div><div class="line">	console.log(&quot;Hello&quot;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function A()&#123;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">A.prototype = new B(); //此时已经重写了A的原型方法，因此constructor属性也没有了</div><div class="line"></div><div class="line">A.prototype.sayHi = function()&#123;</div><div class="line">	console.log(&quot;hi&quot;);</div><div class="line">&#125;</div><div class="line">object1 = new A();</div><div class="line">object1.sayHello(); //Hello,此时会沿着A的[[prototype]]属性指向的原型对象一直去找，A的[[prototype]]属性指向A的原型对象，而原型对象里面也有[[prototype]]属性，因此会找到B的原型对象，所以最终找到来了这个方法。</div></pre></td></tr></table></figure></p>
+<p>其实我觉得当使用构造函数去创建对象的时候，会经过以下的步骤<br>1.创建一个新的对象A<br>2.将构造函数的执行对象赋值给A<br>3.调用构造函数<br>4.返回对象</p>
+<p>以前我很好奇为什么构造函数创建出来的实例会有一个[[prototype]]属性，然后指向它的原型对象；其实就是在构造函数创建实例的过程中，就像第一步所说明，会创建一个对象。就像我们平时直接<code>var a = new Object()</code>新建一个对象一样，这个对象的[[prototype]]属性则指向Object的原型对象；而第一步也是这一样的,新建的这个对象实例的[[prototype]]属性自然就指向这个构造函数的原型对象了。</p>
+<p>但是这样会出现一些<strong>问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function Super()&#123;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">&#125;;</div><div class="line">function subType()&#123;&#125;</div><div class="line"></div><div class="line">subType.prototype = new Super();</div><div class="line"></div><div class="line">var instance1 = new subType();</div><div class="line">instance1.colors.push(&quot;yellow&quot;);</div><div class="line"></div><div class="line">var instance2 = new subType();</div><div class="line">console.log(instance2.colors); //(3) [&quot;red&quot;, &quot;green&quot;, &quot;yellow&quot;]</div></pre></td></tr></table></figure>
+<p>1）本来colors在Super函数构造出来的实例中代表的应该是实例属性，而subType就算继承了它，意义上该属性也应该是实例的属性，即每个对象都有不一样的属性，然后如果通过原型链去构造，此属性就相当于是subType实例的共有属性了，这和JAVA真正意义上的继承是有区别的。和直接写<code>subType.prototype.colors = [&quot;red&quot;,&quot;green&quot;]</code>没有区别</p>
+<p>2）无法向父类的构造方法中传参</p>
+<p>2.借用构造函数的继承<br>构造函数也是一个函数，因此子类其实可以在构造函数中调用父类的方法，通过apply()或者call()，这样就可以解决子类无法向父类传参的问题，而且每个子类都拥有父类属性的副本了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function super()&#123;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType()&#123;</div><div class="line">	super.call(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType();</div><div class="line">instance1.colors.push(&quot;yellow&quot;);</div><div class="line"></div><div class="line">var instance2 = new subType();</div><div class="line">console.log(instance2.colors); //(2) [&quot;red&quot;, &quot;green&quot;]</div></pre></td></tr></table></figure>
+<p>但是这样也有问题，其实subType构造出来的实例和super的原型方法并没有什么关系，只有在super上声明的属性和方法才能被subType继承，所以subType其实是没有继承到父类的原型方法的，这样函数就无法复用了。因此，也很少单独用这种模型。</p>
+<p>3.组合继承</p>
+<p>组合继承就是融合了上诉两种继承方法，这样创建出来的对象既可以拥有父类的实例属性，又可以拥有父类的原型属性了；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function Super(name)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Super.prototype.sayName = function ()&#123;</div><div class="line">	console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType(name,age)&#123;</div><div class="line">	Super.call(this,name); //继承Super的实例属性</div><div class="line">	this.age = age;</div><div class="line">&#125;</div><div class="line">subType.prototype = new Super(); //继承Super,Super中的实例属性和方法也会变成subType的原型属性和方法</div><div class="line">subType.prototype.sayAge = function() &#123;</div><div class="line">	console.log(sayAge);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType(&quot;fish&quot;);</div><div class="line">instance1.colors.push(&quot;yellow&quot;);</div><div class="line">instance1.sayName();//fish</div><div class="line"></div><div class="line">var instance2 = new subType(&quot;kiki&quot;);</div><div class="line">instance2.sayName();//kiki</div><div class="line">console.log(instance2.colors); //(2) [&quot;red&quot;, &quot;green&quot;]</div></pre></td></tr></table></figure>
+<p>4.原型式继承<br>我的天啊！怎么那么多名词…都快要混淆了！！好把，莫慌，其实这个也很简单，因为它也是通过原型链去实现的，只不过比原型链继承更简单一点，这种方法创建的对象不用声明构造函数，而是直接传一个对象作为原型对象，然后返回一个基于该原型对象的对象实例。<br>好吧，好像是简单了一点点,就是以一个对象作为另一个对象的基础拉拉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o) &#123;</div><div class="line">	function F()&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	return new F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样就省去了创建一个特定的构造函数的代码拉，ECMAScript5也有Object.create()方法的实现，除了可以添加原型对象外，还可以添加额外的对象实例方法，参数格式和Object.defineProperties()的第二个参数形式相同，实现方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function createObject(o,properties) &#123;</div><div class="line">	var temp = new Object();</div><div class="line">	temp.__proto__ = o;</div><div class="line">	Object.defineProperties(temp,propertiesObject);</div><div class="line">	return temp;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = &#123; name:&quot;fish&quot;&#125;</div><div class="line">anthoer = object(person, &#123;sex: &#123;value:&quot;girl&quot;&#125;&#125;)</div><div class="line">console.log(anthoer.sex); //girl;</div></pre></td></tr></table></figure>
+<p>5.寄生式继承<br>和原型式继承差不多，只不过是可以原型式继承返回的是拿传过来的对象作原型对象，而寄生式继承还可以增强这个对象，例如添加实例方法等,感觉和createObject差不多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function createAnother(o)&#123;</div><div class="line">	var clone = object(o);  //引用上例的object</div><div class="line">	clone.sayHello = function()&#123;</div><div class="line">	 console.log(&quot;hello&quot;);</div><div class="line">	&#125;//实例方法，但是没办法做到函数共享，和构造函数的缺点一样</div><div class="line">	return clone;</div><div class="line">&#125;</div><div class="line">var object1 = createAnother(&#123;name: &quot;fish&quot;&#125;)</div><div class="line">object1.sayHello() //&quot;hello&quot;</div></pre></td></tr></table></figure>
+<p>6.寄生组合式继承<br>由于组合原型继承中要调用两次父类的构造函数，而且子类原型中还有些父类不必要的实例属性。所以可以用寄生继承的方法来构造子类的原型，其实子类中要的只不过就是父类的原型对象而已，所以可以先创建一个父类的原型对象副本，再赋值给子类的原型对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"> function inheritPrototype(subType, superType)&#123;</div><div class="line"> 	var prototype = Object.assign(&#123;&#125;,superType.prototype);//这里曾经纠结了一下，为什么要复制一个副本，而不是直接引用，是因为如果直接用父类原型赋值，那么改变prototype的值，也会影响父类的原型的。但是这里也有一个问题，就是父类的原型如果在子类继承之后改变了，那么子类就获取不了更新了</div><div class="line"> 	subType.prototype = prototype;</div><div class="line"> 	subType.prototype.constructor = subType;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">function Super(name)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.colors = [&quot;red&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Super.prototype.sayName = function ()&#123;</div><div class="line">	console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function subType(name,age)&#123;</div><div class="line">	Super.call(this,name); //继承Super的实例属性</div><div class="line">	this.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(subType,Super);</div><div class="line">subType.prototype.sayAge = function() &#123;</div><div class="line">	console.log(sayAge);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var instance1 = new subType(&quot;fish&quot;);</div><div class="line">instance1.colors.push(&quot;yellow&quot;);</div><div class="line">instance1.sayName();//fish</div><div class="line"></div><div class="line">Super.prototype.sayName = function ()&#123;</div><div class="line">	console.log(&quot;hello&quot;);</div><div class="line">&#125;//此时改变父类原型</div></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/fishlao" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 fishlao<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
