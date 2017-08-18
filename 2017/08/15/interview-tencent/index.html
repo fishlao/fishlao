@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="3.项目优化3.1减少HTTP请求：合并脚本和样式文件；CSS Sprites 利用CSS background 进行背景图绝对定位，把多个图片合成一个图片
+3.2使用浏览器缓存（这里就问到了http的缓存机制）
+3.3使用压缩组件，例如GZIP(是使用无损压缩算法)。这种不是说用webpack这样">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="fishlao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="small-knowledge"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Fish"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>small-knowledge - Fish</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/myBlog/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/myBlog/">Fish</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/myBlog/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/myBlog/tags">
+                            
+                                tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/fishlao">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>small-knowledge</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-08-15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/myBlog/tags/Js/">#Js</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>3.项目优化<br>3.1减少HTTP请求：合并脚本和样式文件；CSS Sprites 利用CSS background 进行背景图绝对定位，把多个图片合成一个图片</p>
+<p>3.2使用浏览器缓存（这里就问到了http的缓存机制）</p>
+<p>3.3使用压缩组件，例如GZIP(是使用无损压缩算法)。这种不是说用webpack这样工具去压缩js文件，而是在http传输过程中的再次压缩，可以说是在压缩的基础上去压缩。主要是服务器要设置对于返回的静态资源去压缩，然后浏览器再进行解压。主要是HTTP1.1中的Accept-Encoding，声明浏览器支持的压缩方式。<br>HTTP请求中，accept-encoding: gzip, deflate, sdch, br是指客户端浏览器支持的压缩方式。在HTTP响应中，content-encoding:gzip是指服务端使用了gzip这种压缩方式。缺点就是压缩过程占用CUP资源，客户端浏览器解析也占据了一部分时间.<br>例如在tomcat中配置gzip压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;Connector port=&quot;8085&quot; protocol=&quot;HTTP/1.1&quot;</div><div class="line">               connectionTimeout=&quot;20000&quot;</div><div class="line">               redirectPort=&quot;8443&quot;</div><div class="line">               compression=&quot;on&quot; //是否开启压缩</div><div class="line">               compressionMinSize=&quot;2048&quot; //压缩的最小大小</div><div class="line">               compressableMimeType=&quot;text/html,text/xml,application/javascript,text/css,text/plain,image/png&quot; //压缩类型</div><div class="line">               useSendfile=&quot;false&quot;</div><div class="line">/&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="/img/http-gzip.png" alt="压缩后的资源结果" title="压缩后的资源结果"><br>3.4将重要的CSS文件放在顶部，防止白屏（和浏览器渲染的机制有关）<br>3.5将JS文件放在底部<br>3.6使用事件代理（防止多个相同的子节点有多个事件处理器，可通过冒泡机制）<br>3.7使用<code>&lt;link rel=&quot;preload&quot; /&gt;``&lt;link rel=&quot;prefetch&quot; /&gt;</code>预加载资源，preload是当前页面需要的，可以先加载重要的资源，prefetch是下个页面或者之后需要用到的，等待浏览器空闲的时候再去下载（尚未实验….）</p>
+<p>4.web安全，如何防范(待完善)<br>1）xss </p>
+<p>反射型：主要的原理的客户端带着一些攻击性的代码去请求服务器，然后服务器解析响应返回给客户端的时候，攻击性代码就在浏览器解析的时候出现了；比如通过在url的参数<code>xss=&quot;alert(&quot;123&quot;)</code>，服务器会可能会获取这些请求参数，然后在模版中引用xss这个值，在相应的时候返回给客户端，那些客户端去渲染的时候自然就会执行<code>alert(&quot;123&quot;)</code>(假设浏览器没有拦截的话)<br>存储型：通过sql等语句在服务器中存储这种攻击代码。比如存储评论。</p>
+<p>防范：编码、解码(客户端)，过滤部分的标签</p>
+<p>2)crsf 跨站请求伪造（Cross-site request forgery）伪造用户的身份（获取cookie）去干些别的事<br>防范：<br>1.在表单里面添加一个隐藏的表单值，比如用cookie里面某个值作md5,服务器在验证的时候就可以验证这个cookie对应的md5是否就是该用户所发出来的。<br>2.验证码<br>….</p>
+<p>5.js如何实现异步加载<br>分清同步加载，异步加载和延迟执行的区别哦，<br>1)同步加载<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:3000/javascripts/b.js&quot;&gt;&lt;/script&gt;</code><br>正常没有属性都不加的，就是按照从上到下的情况去执行，<strong>下载完之后就会立刻执行</strong>；</p>
+<p><img src="http://read.html5.qq.com/image?src=forum&amp;q=5&amp;r=0&amp;imgflag=7&amp;imageUrl=http://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MeviaCeib1DOg3N08GsogicnnWaZs17aU7MkcuuefzoaoZibHpiaXia5aBRaLEUvfsrCicyxoENiaOB80PgCAOg/0?wx_fmt=png" alt="同步加载" title="同步加载"></p>
+<p>2）异步加载<br>方法一：动态创建dom元素；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var script = document.createElement(&quot;script&quot;);</div><div class="line">	script.src=&quot;https://www.youtube.com/watch?v=cSUxHv-kH7w&amp;list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0&amp;index=2&quot;;</div><div class="line">document.head.appendChild(script);</div></pre></td></tr></table></figure></p>
+<p>方法二：使用defer属性<br><code>&lt;script defer src=&quot;http://localhost:3000/javascripts/b.js&quot;&gt;&lt;/script&gt;</code><br>当js被浏览器异步加载后,不会立刻执行，而是等把html文档解析后才会执行，也就是延迟执行。如果有多个defer属性的js则是按先后顺序执行。这个js会在DOMContentLoaded事件发生之前去执行。</p>
+<p><img src="http://read.html5.qq.com/image?src=forum&amp;q=5&amp;r=0&amp;imgflag=7&amp;imageUrl=http://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MeviaCeib1DOg3N08GsogicnnWaZkiaxKX9Axqz6RYOv1tmmtvNPJD72QMhicpt2mPB3hgoWLpkZ3AgjYFpg/0?wx_fmt=png" alt="defer脚本" title="defer脚本"></p>
+<p>方法三： 使用async（html5）属性<br><code>&lt;script async src=&quot;http://localhost:3000/javascripts/b.js&quot;&gt;&lt;/script&gt;</code><br>当js被浏览器异步加载后立刻执行，DOMContentLoaded事件并不需要等待js执行完毕<br><img src="http://read.html5.qq.com/image?src=forum&amp;q=5&amp;r=0&amp;imgflag=7&amp;imageUrl=http://mmbiz.qpic.cn/mmbiz_png/meG6Vo0MeviaCeib1DOg3N08GsogicnnWaZC5c8Sm8GHobj5gRIPsz8NTYiclWJ1HqVgY3XZk4uRj3iaoPUGa7BYUPA/0?wx_fmt=png" alt="async脚本" title="async脚本"></p>
+<p>另外，当 HTML 文档解析完成就会触发 DOMContentLoaded，而所有资源加载完成之后，load 事件才会被触发。</p>
+<p>6.如何理解js是个单线程</p>
+<p>6.1 浏览器的事件循环<br>js是单线程的理解是js总是执行完一件事情才执行另外一件事情的，即使是有异步函数，定时器什么的，事件监听什么的，会把这些事件放在任务队列里面，而任务队列就是个队列的数据结构，先进先出，不同的异步任务的回调函数会放在不同的任务队列之中。比如一个异步函数，在它请求完毕之后就会把回调函数放在任务队列里面，如果JS主线程把执行栈的东西都执行完了，才会在任务队列中取出任务，比如刚刚说的回调函数，这才会去执行，对于定时器,setTimeout(fn,0)。html5规定了第二个参数的最小值为4毫秒，如果低于这个值，则会自动去增加。</p>
+<p>7.同时执行new Promise和settimeout哪个会更快<br>两个所属于不同的任务队列</p>
+<p>其中setTimeout和Promise的任务队列叫做macro-task(宏任务)，当然如我们所想，还有micro-task(微任务)。</p>
+<p>macro-task（宏任务）包括：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。</p>
+<p>micro-task（微任务）包括：process.nextTick, Promises, Object.observe, MutationObserver<br>总结一下就是先进行一个宏任务，然后所有的微任务后再进行一个宏任务；<br>详情：   <a href="https://zhuanlan.zhihu.com/p/26238030" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/26238030</a>  事件循环下<br>8.事件机制，如何阻止冒泡</p>
+<p>9.对比jquery框架react,vue好处是什么</p>
+<p>10.浏览器重绘和重排</p>
+<p>11.es5和es6的this有什么不同</p>
+<p>12.html5有什么新特性</p>
+<p>13.跨域，同源策略<br>同源策略，原来是指域名，协议，端口相同。我还以为是只是域名相同就不会发生跨域了。<br>1.jsonP<br>2.修document.domain属性，但是只能修改成其或者其父类域名，如果直接赋值则端口号会变成null<br>3.cors（Cross-origin resource sharing）服务器设置Access-Control-Allow-Origin字段</p>
+<p>14.react(差异化的算法)</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/fishlao" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 fishlao<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

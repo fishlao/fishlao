@@ -10,7 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="###Compare the emlement type of root1.if type is different,then the old one will be destoryed and new component will be rebuild,eg:1234567&amp;lt;div&amp;gt; ">
+        <meta name="description" content="太久没有写css了,现在来回顾一下CSS布局和总结一下当使用浮动元素导致父元素坍塌的解决方法哦~~~如果我们不采取任何的方式，直接使用浮动元素会是这样的那为什么背景颜色没有显示出来呢，很简单，就是因为浮动元素在正常的文档流中是不占位置的，所以自然对于父元素来说，子元素就像不存在它的容器内，那自然就没">
     
 
     <!--Author-->
@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="React Diff"/>
+        <meta property="og:title" content="floatLayOut"/>
     
 
     <!--Open Graph Description-->
@@ -42,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>React Diff - Fish</title>
+    <title>floatLayOut - Fish</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -144,13 +144,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>React Diff</h1>
+                    <h1>floatLayOut</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-07-27
+                            2017-08-17
                         
                     </span>
                 </div>
@@ -171,7 +171,7 @@
                         
 
 
-<a href="/myBlog/tags/React/">#React</a>
+<a href="/myBlog/tags/Css/">#Css</a>
 
 
                     
@@ -186,9 +186,20 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>###Compare the emlement type of root<br>1.if type is different,then the old one will be destoryed and new component will be rebuild,eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;Counter /&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;span&gt;</div><div class="line">  &lt;Counter /&gt;</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure></p>
-<p>when diffing above,this will destory the old Counter and remount a new one;<br>related method:<br>    destory: <code>componentWillUnmount()</code><br>    rebuild: <code>componentWillMount()</code> &amp; <code>componentDidMount()</code></p>
-<p>2.if type is same, React looks at the attributes of both,finds the diff between the previous and the new,and then only update the changed attributes.React calls <code>componentWillReceiveProps()</code> and <code>componentWillUpdate()</code> on the underlying instance,and next calls <code>render()</code>.The diff algorithm recurses on the previous result and new result.</p>
+                <p>太久没有写css了,现在来回顾一下CSS布局和总结一下当使用浮动元素导致父元素坍塌的解决方法哦~~~<br>如果我们不采取任何的方式，直接使用浮动元素会是这样的<br><img src="/img/floatLayout/origin.png" alt="浮动布局" title="原始布局"><br>那为什么背景颜色没有显示出来呢，很简单，就是因为浮动元素在正常的文档流中是不占位置的，所以自然对于父元素来说，子元素就像不存在它的容器内，那自然就没有高度拉！<br>这时候父元素的高度为0;</p>
+<p>于是解决方法</p>
+<p>1.使父元素也为浮动元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.content &#123;</div><div class="line">	float: left;</div><div class="line">	width:90%</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看看效果，现在背景就出来了<br><img src="/img/floatLayout/origin-float" alt="floatLayOut" title="加了float的布局"><br>缺点：<br>会影响后面的布局，比如下面的<code>&lt;footer&gt;</code>元素，就会忽视这个div然后跑到上面去了,细心的同学可能就会发现了，为什么图二的底部不会跑上去呢，而下图的底部就跑上去了呢，原因是图二的有文字的原因，文字会使环绕着浮动元素，所以就没有跑上去了，而下面的图中只设置了高度和宽度，所以就被遮挡住拉！<br>可以给footer加上<code>clear: both</code>,让他清除浮动哦<br><img src="/img/floatLayout/origin-float-footer.png" alt="floatLayOut" title="加了float的布局缺点"></p>
+<p>2.使用overflow:hidden<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.content &#123;</div><div class="line">	background-color:#cddc39;</div><div class="line">	overflow: hidden;</div><div class="line">	width:100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/img/floatLayout/origin-overflow.png" alt="floatLayOut" title="加了overflow的布局"><br>效果和第一种是一样的，但是，下面的footer就不用再加上清除浮动的属性就安安稳稳地在那里拉～<br>我刚查到这种解决方法的时候也不是很懂为什么这样父元素就可以有了高度；这个和ＢＦＣ（块级格式化上下文）有关；下面再详写<br>在Ｗ３Ｃ的标准中，对于overflow是这样的：<br>overflow 属性规定当内容溢出元素框时发生的事情。<br>visible    默认值：内容不会被修剪，会呈现在元素框之外。<br>hidden    内容会被修剪，并且其余内容是不可见的。就是说子元素大于父元素的宽度和高度，父元素也会自动忽略，按照父元素的大小去显示<br>scroll    内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。加了该属性之后就会有滚动条出现<br>auto    如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。就是说子元素大于父元素的宽度和高度，按照父元素的大小去显示，但是会加滚动条来详细查看子元素的<br>inherit    规定应该从父元素继承 overflow 属性的值。</p>
+<p>所以自然而然也就暴露他的缺点了，如果是带有定位元素的子元素，这样子元素就会被裁剪掉了。<br><img src="/img/floatLayout/origin-overflow-bug.png" alt="floatLayOut" title="加了overflow的布局的缺点"><br>把<code>&lt;asize&gt;</code>元素改了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">position: absolute;</div><div class="line">top: -30px;</div></pre></td></tr></table></figure></p>
+<p>之后，可见asize元素里面的文字内容就被裁剪掉了，所以使用overflow属性要考虑定位元素.</p>
+<p>3.在父元素中添加一个空标签，然后再设<code>clear:both</code>属性<br>曾经纠结为什么这种方法父元素会得到高度，看看w3c对clear属性的解释</p>
+<p>定义：<br>clear 属性规定元素的哪一侧不允许其他浮动元素。</p>
+<p>说明：<br>clear 属性定义了元素的哪边上不允许出现浮动元素。在 CSS1 和 CSS2 中，这是通过自动为清除元素（即设置了 clear 属性的元素）增加上外边距实现的。在 CSS2.1 中，会在元素上外边距之上增加清除空间，而外边距本身并不改变。不论哪一种改变，最终结果都一样，如果声明为左边或右边清除，会使元素的上外边框边界刚好在该边上浮动元素的下外边距边界之下。</p>
+<p>所以说，当增加了一个空标签后，会在这个元素的外边距之上添加了清除空间，而外边距本身并不改变。可以想象添加了空行标签之类的，但是我们并没有看到标签的存在，就像被设置了隐藏属性一样，所以父元素就自然有高度了。<br>效果图和1,2方法是一样的，<br>缺点是如果要为此添加一些无用的标签，整个文档结构可能会变得很混乱哦</p>
+<p>4.其实和３方法原理是一样的，只不过是用伪类的方法去实现~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.content:after&#123;</div><div class="line">	display: block; //设置为块级元素，如果是行内元素，则不起作用</div><div class="line">	clear: both; //清除浮动</div><div class="line">	content: &apos;.&apos;; //内容随便拉拉</div><div class="line">	visibility: hidden; //设置为隐藏</div><div class="line">	height: 0; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>源代码：<a href="https://github.com/fishlao/css-practise" target="_blank" rel="external">https://github.com/fishlao/css-practise</a></p>
 
 
                 
